@@ -31,7 +31,7 @@ const items = [
     price: '1000円',
     tag: ['uv차단', '13.5', '인기상품', '추천상품'],
     discount: '800円',
-    img: '/assets/beautiful-tropical-empty-beach-sea-ocean-with-white-cloud-on-blue-sky-background_74190-13665.webp',
+    img: 'https://lenssis.jp/data/item/6970799150/66Oo7Iuc7JWE6re466CI7J20_66qo64247Lu3.jpg',
     isNew: true
   },
   {
@@ -42,7 +42,7 @@ const items = [
     price: '1000円',
     tag: ['uv차단', '13.5', '인기상품', '추천상품'],
     discount: '800円',
-    img: '/assets/beautiful-tropical-empty-beach-sea-ocean-with-white-cloud-on-blue-sky-background_74190-13665.webp',
+    img: 'https://lenssis.jp/data/item/6970799150/66Oo7Iuc7JWE6re466CI7J20_66qo64247Lu3.jpg',
     isNew: true
   },
   {
@@ -53,7 +53,7 @@ const items = [
     price: '1000円',
     tag: ['uv차단', '13.5', '인기상품', '추천상품'],
     discount: '800円',
-    img: '/assets/beautiful-tropical-empty-beach-sea-ocean-with-white-cloud-on-blue-sky-background_74190-13665.webp',
+    img: 'https://lenssis.jp/data/item/6970799150/66Oo7Iuc7JWE6re466CI7J20_66qo64247Lu3.jpg',
     isNew: true
   },
   {
@@ -64,7 +64,7 @@ const items = [
     price: '1000円',
     tag: ['uv차단', '13.5', '인기상품', '추천상품'],
     discount: '800円',
-    img: '/assets/beautiful-tropical-empty-beach-sea-ocean-with-white-cloud-on-blue-sky-background_74190-13665.webp',
+    img: 'https://lenssis.jp/data/item/6970799150/66Oo7Iuc7JWE6re466CI7J20_66qo64247Lu3.jpg',
     isNew: true
   }
 ]

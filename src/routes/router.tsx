@@ -10,7 +10,7 @@ import SignupPage from '../pages/SignupPage'
 import NotFound from '../components/NotFound'
 import EventDetail from '../components/EventDetail'
 import Header from '../components/header/Header'
-import Footer from '../components/footer/Footer'
+
 import MyOrder from '../components/mypage/tabs/MyOrder'
 import MyTracking from '../components/mypage/tabs/MyTracking'
 import MyAfter from '../components/mypage/tabs/MyAfter'
@@ -34,6 +34,8 @@ import NoticeDetail from './../components/main/notice/NoticeDetail'
 import EventPage from '../pages/EventPage'
 import Review from '../pages/ReviewPage'
 import MobileBottomNav from '../components/footer/bottom-navigation/MobileBottomNav'
+import EditProfile from '../components/mypage/myprofile/EditProfile'
+import EditSecret from '../components/mypage/myprofile/EditSecret'
 
 const Router = () => {
   return (
@@ -56,10 +58,13 @@ const Router = () => {
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/favorite" element={<Favorite />} />
         <Route path="/mypage" element={<MypagePage />}>
-          <Route path="myorder" element={<MyOrder />}/>
+          <Route path="myorder" element={<MyOrder />} />
           <Route path="mytracking" element={<MyTracking />} />
           <Route path="myafter" element={<MyAfter />} />
-          <Route path="myprofile" element={<MyProfile />} />
+          <Route path="myprofile" element={<MyProfile />}>
+            <Route path="editprofile" element={<EditProfile />} />
+            <Route path="editsecret" element={<EditSecret />} />
+          </Route>
           <Route path="myreview" element={<MyReview />} />
           <Route path="mygrade" element={<MyGrade />} />
           <Route path="mycoupon" element={<MyCoupon />} />
@@ -81,13 +86,12 @@ const Router = () => {
         </Route>
         <Route path="/notice/:id" element={<NoticeDetail />} />
         <Route path="/event" element={<EventPage />} />
-
         <Route path="/event/:id" element={<EventDetail />} />
         <Route path="/review" element={<Review />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <MobileBottomNav />
-      <Footer />
+      
     </BrowserRouter>
   )
 }

@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom'
 
 import { userState } from '../../store/user'
 import { useUser } from '../auth/hooks/useUser'
+import { getStoredToken } from '../local-storage/userStorage'
 
 const RightNavLinks = () => {
 
  const {user} = useUser()
-  
+  const token = getStoredToken()
   return (
     <div className="flex items-center min-w-[200px] gap-4 justify-between">
       <div className="flex-1">
@@ -25,7 +26,7 @@ const RightNavLinks = () => {
         </Link>
       </div>
       <div className="flex-1">
-        <Link to={user ? '/mypage' : '/signin'}>
+        <Link to={token || user ? '/mypage' : '/signin'}>
           <svg className="mx-auto" width={40} height={28} xmlns="http://www.w3.org/2000/svg">
             <image href="/assets/person.svg" />
           </svg>

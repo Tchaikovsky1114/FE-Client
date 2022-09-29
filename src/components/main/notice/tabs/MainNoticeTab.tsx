@@ -9,7 +9,7 @@ interface Title {
 function MainNoticeTab() {
   return (
     <>
-      <div className="overflow-y-scroll  flex xs:hidden w-full border-b-[1px] py-4">
+      <div className="overflow-y-scroll flex  xs:text-center w-full xs:border-b-[1px] border-solid border-lenssisDark">
         {NoticeTitles.map((title: Title, index: number) => (
           <NavLink
             key={index}
@@ -19,7 +19,7 @@ function MainNoticeTab() {
               color: isActive ? '#1b304a' : '#d3d3d3'
             })}
             to={title.value}
-            className="py-[10px] px-2 mx-[2px] whitespace-nowrap"
+            className="w-[100px] xs:w-[200px] py-[4px] px-2 mx-[2px] xs:mx-auto whitespace-nowrap"
           >
             {title.title}
           </NavLink>

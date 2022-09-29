@@ -8,9 +8,9 @@ const MainNotice = () => {
       <div className="flex justify-center items-center text-[24px]  ">
         <span
           onClick={() => navigate('/notice')}
-          className="border-b-[6px] border-solid border-[#1B304A] my-10 hover:cursor-pointer"
+          className="border-b-[6px] border-solid border-[#1B304A] text-[18px] md:text-[24px] font-[600] mt-[25px] mb-[30px] md:mb-[50px] hover:cursor-pointer"
         >
-          공지사항
+          Notice
         </span>
       </div>
       <NoticeTitle />

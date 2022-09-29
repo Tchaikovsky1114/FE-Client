@@ -4,15 +4,15 @@ import App from './App'
 import './index.css'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import {RecoilRoot} from 'recoil';
+import { RecoilRoot } from 'recoil'
 const client = new QueryClient({
   defaultOptions: {
-    queries:{
+    queries: {
       refetchOnWindowFocus: true,
-      refetchOnMount:false,
-      refetchOnReconnect:false,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
       retry: 1,
-      staleTime: 5000,
+      staleTime: 5000
     }
   }
 })
@@ -20,7 +20,7 @@ const client = new QueryClient({
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <QueryClientProvider client={client}>
     <RecoilRoot>
-    <App />
+      <App />
     </RecoilRoot>
     <ReactQueryDevtools />
   </QueryClientProvider>

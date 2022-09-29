@@ -1,24 +1,26 @@
 import React, { ReactNode } from 'react'
+import Footer from '../../footer/Footer'
 
 interface PageLayoutProps {
   children: React.ReactNode
   layoutWidth: string
-
+  layoutHeight?: string
   innerTop?: string
 }
 
-const PageLayout = ({ children, layoutWidth, innerTop }: PageLayoutProps) => {
+const PageLayout = ({ children, layoutWidth, layoutHeight }: PageLayoutProps) => {
   return (
-    <div className="w-full h-[2146px] bg-[#F4F6F8] text-base ">
+
+    <div className={`w-full xs:w-full ${layoutHeight ? layoutHeight : 'h-max'} bg-[#F4F6F8] text-base min-h-screen xs:mt-40`}>
       <div
-        className={`absolute ${
-          innerTop ? innerTop : 'top-1/2'
-        } left-1/2 -translate-x-1/2 -translate-y-[15%] w-${layoutWidth || 'full'} h-fit `}
+        className={`mx-auto ${layoutWidth ? layoutWidth : 'w-full'}`}
       >
         {children}
       </div>
+
+      <Footer />
     </div>
   )
 }
 
-export default PageLayout
+export default React.memo(PageLayout);

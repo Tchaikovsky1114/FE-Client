@@ -21,26 +21,39 @@ const ProductDetails = () => {
     <div>
       <section className="text-gray-600 body-font overflow-hidden">
         <div className="container pt-44 pb-10 mx-auto ">
-          <div className="lg:w-full mx-auto flex flex-wrap ring-2 ring-[#DADADA] rounded-2xl p-8 shadow-lg ">
+          <div className="lg:w-full mx-auto flex flex-wrap ring-2 ring-[#DADADA] rounded-2xl p-8 shadow-lg xs-max:w-[95%] xs-max:px-[18px] ">
             <div className="md:flex-row lg:flex-col lg:w-1/2 w-full lg:h-auto flex flex-col gap-4">
+              <h2 className="xs:hidden text-center text-[20px] text-lenssisDark font-bold">상품상세</h2>
               <img
                 alt="ecommerce"
-                className="object-cover object-center rounded mx-auto"
+                className="object-cover object-center rounded mx-auto xs-max:w-[320px] xs-max:h-[315px]"
                 src="https://dummyimage.com/465x460"
                 width="465"
                 height="460"
               />
-              <div className="flex justify-center gap-3 md:mx-auto md:flex-col lg:gap-[14px] lg:flex-row xl:w-[460px] xl:mx-auto xl:gap-[14.2px]">
-                <img className="rounded" src="https://dummyimage.com/105x105" />
-                <img className="rounded" src="https://dummyimage.com/105x105" />
-                <img className="rounded" src="https://dummyimage.com/105x105" />
-                <img className="rounded" src="https://dummyimage.com/105x105" />
+              <div className="flex xs:justify-between sm:justify-center md:justify-between lg:justify-between gap-3 md:mx-auto md:flex-col lg:gap-[14px] lg:flex-row xl:w-[460px] xl:mx-auto xl:gap-[14.2px] xs-max:w-[320px] xs-max:mx-auto xs-max:gap-2">
+                <img
+                  className="rounded xs-max:w-[74px] xs:w-[74px] sm:w-[105px]"
+                  src="https://dummyimage.com/105x105"
+                />
+                <img
+                  className="rounded xs-max:w-[74px] xs:w-[74px] sm:w-[105px]"
+                  src="https://dummyimage.com/105x105"
+                />
+                <img
+                  className="rounded xs-max:w-[74px] xs:w-[74px] sm:w-[105px]"
+                  src="https://dummyimage.com/105x105"
+                />
+                <img
+                  className="rounded xs-max:w-[74px] xs:w-[74px] sm:w-[105px]"
+                  src="https://dummyimage.com/105x105"
+                />
               </div>
             </div>
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-2 mt-6 lg:mt-0">
-              <h2 className="text-sm title-font text-[#A1A0A0] mb-2">60개의 리뷰 &gt;</h2>
-              <div className="text-gray-900 text-3xl title-font font-medium mb-4 flex justify-between">
-                <span className="">스텔라 그레이 원데이</span>
+              <h2 className="text-sm title-font text-lenssisGray mb-2 text-[12px]">60개의 리뷰 &gt;</h2>
+              <div className="text-gray-900 text-3xl title-font font-medium mb-2 flex justify-between">
+                <span className="">스텔라</span>
                 <button>
                   <svg
                     width="24"
@@ -59,18 +72,11 @@ const ProductDetails = () => {
                   </svg>
                 </button>
               </div>
-              <div className="flex mb-4">
-                <span className="flex items-center my-2">
-                  아이브 장원영 Pick! 착용하는 순간부터 초롱초롱 사슴 눈망울!
-                </span>
-              </div>
-              <p className="leading-relaxed">
-                <div className="price">
-                  <p>2000엔</p>
-                  <div className="my-4">
-                    <span className="text-xl font-bold">1800엔</span>
-                    <span className="ml-2 text-[#E05155]">(1000엔 할인)</span>
-                  </div>
+              <div className="divider h-[1px] bg-[#BCBCBC] my-2 xs-max:hidden"></div>
+              <p className="leading-relaxed text-[14px]">
+                <div className="price flex">
+                  <p className="text-xl font-bold">1,800円</p>
+                  <p className="ml-4 leading-7">2,000円</p>
                 </div>
                 <div className="badge flex gap-4 my-4">
                   <span className="ring-2 rounded px-2 text-sm">원데이</span>
@@ -79,27 +85,73 @@ const ProductDetails = () => {
                   <span className="ring-2 rounded px-2 text-sm"> 실리콘</span>
                 </div>
                 <div className="point flex flex-initial my-2 ">
-                  <p className="flex-1">포인트</p>
+                  <p className="text-black w-[130px] xs-max:w-[70px] lg:w-[160px]">포인트</p>
                   <p className="flex-1">구매 금액의 1%</p>
                 </div>
                 <div className="card flex my-2">
-                  <p className="flex-1">카드 혜택</p>
+                  <p className="text-black w-[130px] xs-max:w-[70px] lg:w-[160px]">카드 혜택</p>
                   <p className="flex-1">무이자 할부 카드 안내</p>
                 </div>
                 <div className="delivery flex my-2">
-                  <p className="flex-1">배송 안내</p>
-                  <p className="flex-1">2,500원(50,000원 이상 구매 시 무료)</p>
+                  <p className="text-black w-[130px] xs-max:w-[70px] lg:w-[160px]">배송 안내</p>
+                  <div>
+                    <p className="flex-1 text-[14px] text-lenssisDeepGray">
+                      2,500원(50,000원 이상 구매 시 무료)
+                    </p>
+                    <p className="text-[12px]">영업일 기준 5~7일 이내 배송</p>
+                  </div>
                 </div>
-                <div className="degree"></div>
+                <div className="divider h-[1px] bg-[#BCBCBC] mt-2 mb-4 sm:hidden"></div>
+                <div className="divider"></div>
+                <div className="delivery flex my-2">
+                  <p className="text-black w-[130px] xs-max:w-[70px] lg:w-[160px]">사용 기간</p>
+                  <div className="flex flex-1 gap-2">
+                    <div className=" border-solid border-[#D3D3D3] border-[1px] rounded-[28px] text-center py-[1px] px-[12px] text-[#5A5A5A] w-[100px] h-[30px] ">
+                      원데이
+                    </div>
+                    <div className=" border-solid border-[#D3D3D3] border-[1px] rounded-[28px] text-center py-[1px] px-[12px] text-[#5A5A5A] w-[100px] h-[30px] ">
+                      먼슬리
+                    </div>
+                  </div>
+                </div>
+                <div className="delivery flex my-2">
+                  <p className="text-black w-[130px] xs-max:w-[70px] lg:w-[160px]">직경</p>
+                  <div className="flex gap-2">
+                    <div className=" border-solid border-[#D3D3D3] border-[1px] rounded-[28px] text-center py-[1px] px-[12px] text-[#5A5A5A] w-[55px] h-[30px] ">
+                      13.2
+                    </div>
+                    <div className=" border-solid border-[#D3D3D3] border-[1px] rounded-[28px] text-center py-[1px] px-[12px] text-[#5A5A5A] w-[55px] h-[30px] ">
+                      13.2
+                    </div>
+                  </div>
+                </div>
+                <div className="delivery flex my-2">
+                  <p className="text-black w-[130px] xs-max:w-[70px] lg:w-[160px]">세부 색상</p>
+                  <div className="flex gap-2">
+                    <div
+                      className="w-[30px] h-[30px] rounded-full"
+                      style={{ backgroundColor: '#A76C27' }}
+                    ></div>
+                    <div
+                      className="w-[30px] h-[30px] rounded-full"
+                      style={{ backgroundColor: '#F2EAD1' }}
+                    ></div>
+                    <div
+                      className="w-[30px] h-[30px] rounded-full"
+                      style={{ backgroundColor: '#B9B9B9' }}
+                    ></div>
+                  </div>
+                </div>
               </p>
               <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5 justify-between">
                 <div className="flex">
-                  <span className="mr-3">도수</span>
+                  <span className="mr-3 text-black w-[130px] xs-max:w-[70px] lg:w-[160px] text-[14px]">
+                    도수
+                  </span>
                 </div>
                 <div className="flex ml-6 items-center">
-                  <span className="mr-3">Size</span>
                   <div className="relative">
-                    <select className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500 text-base pl-3 pr-10">
+                    <select className="h-[30px] rounded border appearance-none border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500 text-base pl-3 pr-10">
                       <option value="">選択してください</option>
                       <option value="0.00,0,376">0.00</option>
                       <option value="-0.5,0,301">-0.5</option>
@@ -149,14 +201,14 @@ const ProductDetails = () => {
               </div>
               <div className="flex justify-between">
                 <span>총 상품 금액</span>
-                <span className="title-font font-medium text-2xl text-gray-900">$58.00</span>
+                <span className="title-font font-medium text-2xl text-gray-900">1,800円</span>
               </div>
               <div className="divder h-[2px] bg-slate-700 mb-4 mt-1"></div>
-              <div className="flex gap-4">
-                <button className="w-1/2 cursor-pointer bg-white text-blue-900 border-0 ring-1 ring-gray-300 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded">
+              <div className="flex gap-4 xs-max:flex-col">
+                <button className="w-1/2 cursor-pointer bg-white text-blue-900 border-0 ring-1 ring-gray-300 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded xs-max:w-full">
                   장바구니
                 </button>
-                <button className="w-1/2 cursor-pointer text-white bg-[#1B304A] border-0 ring-1 ring-gray-300 py-2 px-6 focus:outline-none rounded">
+                <button className="w-1/2 cursor-pointer text-white bg-[#1B304A] border-0 ring-1 ring-gray-300 py-2 px-6 focus:outline-none rounded xs-max:w-full">
                   바로구매
                 </button>
               </div>

@@ -11,15 +11,13 @@ import { useState } from 'react'
 
 // 토큰을 통해 유저 정보를 받아오는 getUser가 signIn보다 빠르게 진행되면서 생기는 문제같음..
 const getUser = async (token: Token | null): Promise<User | null> => {
-  if (!token) {
-    console.log('user없음')
-    return null
-  }
+  if (!token) return null
+  
   const { data }: AxiosResponse<User> = await axiosInstance.get('/member/info', {
     headers: getJWTToken(token),
   })
   console.log('user있음')
-  console.log(data)
+  console.log('getUser - data',data)
   return data
 }
 
@@ -27,16 +25,16 @@ interface UseUser {
   user: User | null | undefined
   updateUser: (user: Token) => void
   clearUser: () => void
-  isFetching: number
+  isLoading:boolean
 }
 
 export const useUser = (): UseUser => {
   const [currentUser, setCurrentUser] = useRecoilState(userState)
   const queryClient = useQueryClient()
   const token = getStoredToken()
-  const isFetching = useIsFetching()
-
-  const { data: user } = useQuery([queryKeys.user], () => getUser(token), {
+  
+ 
+  const { data: user,isLoading,isError } = useQuery([queryKeys.user], () => getUser(token), {
     onSuccess: (received: User | null) => {
       if (received) {
         setCurrentUser(received)
@@ -59,11 +57,11 @@ export const useUser = (): UseUser => {
     // queryClient.setQueryData(queryKeys.user, null)
     queryClient.removeQueries([queryKeys.user, queryKeys.token])
   }
-
+  
   return {
     user,
     updateUser,
     clearUser,
-    isFetching
+    isLoading
   }
 }

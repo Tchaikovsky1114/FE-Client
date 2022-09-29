@@ -1,8 +1,13 @@
 import React from 'react'
+import MobileNotice from '../utils/MobileNotice'
+import WebNotice from '../utils/WebNotice'
 
 function AboutProduct() {
   return (
-    <div>AboutProduct</div>
+    <>
+      <WebNotice />
+      <MobileNotice />
+    </>
   )
 }
 

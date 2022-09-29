@@ -1,55 +1,92 @@
-import React from 'react'
-import { Navigate, useNavigate } from 'react-router'
+import { useNavigate } from 'react-router'
 import PageLayout from '../components/common/ui/PageLayout'
 import CardTemplate from './../components/common/ui/CardTemplate'
+import { EventResponseType, useGetDetailEvent, useGetEvent } from '../components/main/hooks/useEventLists'
+import { useEffect, useState } from 'react'
+import Pagination from './../components/main/common/Pagination'
+import Search from '../components/main/common/Search'
 
 // 지울 것
 const events = [
-  { id: 1, img: '/assets/KakaoTalk_20220714_125021628.jpg', content: '이벤트 내용' },
-  { id: 2, img: '/assets/KakaoTalk_20220714_125021628.jpg', content: '이벤트 내용' },
-  { id: 3, img: '/assets/KakaoTalk_20220714_125021628.jpg', content: '이벤트 내용' },
-  { id: 4, img: '/assets/KakaoTalk_20220714_125021628.jpg', content: '이벤트 내용' }
+  {
+    id: '1',
+    mainImg: 'https://lenssis.jp/data/editor/2203/e3817c7f5762e0e9529ed6b00c90f2b2_1648004784_1526.jpg',
+    description: '이벤트 내용'
+  },
+  {
+    id: '2',
+    mainImg: 'https://lenssis.jp/data/editor/2203/e3817c7f5762e0e9529ed6b00c90f2b2_1648004793_108.jpg',
+    description: '이벤트 내용'
+  },
+  {
+    id: '3',
+    mainImg: 'https://lenssis.jp/data/editor/2203/e3817c7f5762e0e9529ed6b00c90f2b2_1648004808_0861.jpg',
+    description: '이벤트 내용'
+  },
+  {
+    id: '4',
+    mainImg: 'https://lenssis.jp/data/editor/2203/44422109c17730933970139952b48d7a_1647854561_93.jpg',
+    description: '이벤트 내용'
+  },
+  {
+    id: '5',
+    mainImg: 'https://lenssis.jp/data/editor/2203/44422109c17730933970139952b48d7a_1647854567_1883.jpg',
+    description: '이벤트 내용'
+  }
 ]
+
+interface EventItem {
+  id: string
+  title?: string
+  description?: string
+  startTime?: string
+  endTime?: string
+  mainImg?: string
+  descImg?: string[]
+}
 
 function EventPage() {
   const navigate = useNavigate()
+  const [eventId, setEventId] = useState<string>('')
+  const [currentPage, setCurrentPage] = useState(1)
+
+  const onClickEvent = (id: string) => {
+    setEventId(id)
+    navigate(`/event/${id}`)
+  }
+  console.log(eventId)
+  if (eventId) {
+    const event = useGetDetailEvent(eventId)
+  }
+  const eventList = useGetEvent(currentPage)
+  console.log(eventList)
+
+  useEffect(() => {
+    setEventId('')
+  }, [])
   return (
     <>
-      <PageLayout layoutWidth="[90%]" innerTop="top-[300px]">
+      <PageLayout layoutWidth="[90%]" innerTop="top-[40%]">
         <CardTemplate title="이벤트" isTitleVisible={true}>
-          <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 justify-items-stretch gap-8 px-12">
-            {events.map((event: any) => (
+          <div className=" grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 justify-items-stretch gap-8 px-12">
+            {/* eventList.map */}
+            {events.map((event: EventItem) => (
               <div
                 key={event.id}
-                className="w-full rounded-xl flex flex-col items-center my-2 shadow-[0_0_6px] shadow-gray-400/80 hover:cursor-pointer"
-                onClick={() => navigate(`/event/${event.id}`)}
+                className="w-full rounded-xl flex flex-col items-center my-2 shadow-basic hover:cursor-pointer"
+                onClick={() => onClickEvent(event.id)}
               >
-                <img className="w-full h-[226px] rounded-t-xl object-cover" src={event.img} alt="" />
+                <img className="w-full h-[226px] rounded-t-xl object-cover" src={event.mainImg} alt="" />
                 <div className=" h-[95px]  rounded-b-xl">
                   {/* 이벤트 내용 */}
-                  {event.content}
+                  {event.description}
                 </div>
               </div>
             ))}
           </div>
-          <div className="mt-16 flex justify-center items-center">
-            <div className="flex-1 flex justify-center items-center  ml-[250px]">
-              <span className="hover:cursor-pointer mx-4">
-                <svg width="7" height="17" viewBox="0 0 7 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5.99805 1L1.49919 8.5L5.99805 16" stroke="#6D6D6D" strokeWidth="0.975844" />
-                </svg>
-              </span>
-              <span>1 2 3 </span>
-              <span className="hover:cursor-pointer mx-4">
-                <svg width="7" height="17" viewBox="0 0 7 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0.998047 16L5.4969 8.5L0.998047 1" stroke="#6D6D6D" strokeWidth="0.975844" />
-                </svg>
-              </span>
-            </div>
-            <input
-              className="p-[4px] mr-[50px] border-[1px] border-solid border-[#A6A6A6] rounded-md "
-              placeholder="Search"
-            />
+          <div className="relative flex justify-center items-center">
+            <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} allCount={50} />
+            <Search />
           </div>
         </CardTemplate>
       </PageLayout>

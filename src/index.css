@@ -9,6 +9,7 @@
   }
   html {
     font-family: 'SUIT', 'SUIT Variable', sans-serif;
+    background-color: #F4F6F8;
   }
   ::-webkit-scrollbar {
     display: none;

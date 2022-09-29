@@ -5,37 +5,31 @@ import { queryKeys } from './../../react-query/queryKeys'
 
 interface ResponseType {
   productId: 'number'
-  title: 'string'
+  name: 'string'
   series: 'string'
-  price: 'number'
-  productImg: 'string[]'
-  isLiked: 'boolean'
-  discount: 'number'
-  descriptionImg: 'string'
+  feature: 'string[]'
+  diamter: 'string'
   details: {
-    diameter: 'string'
+    color_code: 'string[]'
+    price: 'number'
+    discount: 'number'
+    product_details_image_url: 'string[]'
+    graphicDiameter: 'string[]'
     duration: 'string'
-    moisture: 'string'
-    ingredient: 'string'
-    blockUV?: 'string' | null
-    popular?: 'string' | null
-    recommend?: 'string' | null
   }
 }
 
-const getProductsList = async (selectOption: string) => {
+const getProductsList = async () => {
   const { data }: AxiosResponse<ResponseType[]> = await axiosInstance({
-    url: `/product/${selectOption}`,
+    url: `/product/allProduct`,
     headers: {
       ContentType: 'application/json'
     }
   })
   return data
 }
-export const useGetProductsList = (selectOption: string): ResponseType[] => {
+export const useGetProductsList = (): ResponseType[] => {
   const fallback: [] = []
-  const { data = fallback } = useQuery(queryKeys.product /* 키 바꿔야함 */, () =>
-    getProductsList(selectOption)
-  )
+  const { data = fallback } = useQuery(queryKeys.product /* 키 바꿔야함 */, getProductsList)
   return data
 }

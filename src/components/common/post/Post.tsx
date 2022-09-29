@@ -10,14 +10,18 @@ import {
 import FormErrorMessage from '../shared/FormErrorMessage'
 
 
+
 interface PostProps {
-  formValue: SignupFormType
-  setFormValue: React.Dispatch<React.SetStateAction<SignupRecordType>>
+  // 여러가지 다른 형식의 formValue가 들어올 수 있기 때문에 any처리
+  formValue: any
+  setFormValue: any
   changeFormHandler: (e: ChangeEvent<HTMLInputElement>, validator: ValidatorType[]) => void
   addressPopupHandler: () => void
+  titleText:string;
+  isRequired:boolean;
 }
 
-const Post = ({ formValue, setFormValue, changeFormHandler,addressPopupHandler }: PostProps) => {
+const Post = ({ formValue,titleText, setFormValue, changeFormHandler,addressPopupHandler,isRequired }: PostProps) => {
   const [isBlur, setIsBlur] = useState(false)
 
 
@@ -27,22 +31,22 @@ const Post = ({ formValue, setFormValue, changeFormHandler,addressPopupHandler }
   }
   return (
     <>
-      <div className="flex flex-col gap-4 w-full">
-        <label className="font-semibold">우편번호</label>
+      <div className="flex flex-col gap-1 w-full">
+        <label className="font-semibold text-lenssisDark">{titleText} {isRequired && <span className='text-rose-400'>&nbsp;*</span>}</label>
         <div className="flex justify-start items-center gap-2">
           <input
             name="postCode"
             onChange={(e) => changeFormHandler(e, [VALIDATOR_REQUIRE()])}
             value={formValue.postCode}
             type="text"
-            className="grow h-10 border border-solid border-gray-200 rounded-md max-w-[400px]  focus:outline-1 focus:outline-[#ABC8DF]"
+            className="grow h-10 border border-solid border-gray-200 rounded-md max-w-[400px]  focus:outline-1 focus:outline-[#ABC8DF] pl-1"
             readOnly
             onBlur={onBlur}
             
           />
           <div className="grow">
             <button
-              className="w-28 xs:w-40 h-11 bg-[#3e6d87] rounded-md text-white font-bold border-none cursor-pointer"
+              className="w-28 xs:w-40 h-11 bg-lenssisDark rounded-md text-white font-bold border-none cursor-pointer"
               onClick={addressPopupHandler}
             >
               우편 번호 검색
@@ -62,12 +66,14 @@ const Post = ({ formValue, setFormValue, changeFormHandler,addressPopupHandler }
         type2="text"
         double={true}
         label="주소"
-        isRequired={false}
+        labelColor='text-lenssisDark'
+        isRequired={true}
         flexDirection="vertical"
         placeholder="기본 주소"
         placeholder2="상세 주소"
         inputWidth="[400px]"
         inputHeight="10"
+        
         readonly={true}
         validators={[VALIDATOR_MINLENGTH(3), VALIDATOR_MAXLENGTH(30)]}
         errorText="상세 주소를 입력해주세요"

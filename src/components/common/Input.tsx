@@ -45,8 +45,8 @@ const Input = ({label,placeholder,type,double, flexDirection,type2,placeholder2,
   
   if(double){
     return (
-      <div className='flex flex-col justify-center my-[30px] w-full h-fit gap-2'>
-       <label><span className={`text-${labelColor} font-${labelBold}  font-semibold`} >{label}</span>{' '}<span className='text-rose-400'>{isRequired && '*'}</span></label>
+      <div className='flex flex-col justify-center my-4 w-full h-fit gap-2'>
+       <label><span className={`${labelColor ? labelColor : 'text-black'} font-${labelBold} font-semibold`} >{label}</span>{' '}<span className='text-rose-400'>{isRequired && '*'}</span></label>
        <div className={`
        ${flexDirection === 'horizontal' ? 'flex items-center justify-start gap-x-4' : 'flex flex-col justify-center gap-y-2'}
        `}>
@@ -62,7 +62,7 @@ const Input = ({label,placeholder,type,double, flexDirection,type2,placeholder2,
   if(!double){
     return (
       <div className='flex flex-col justify-center my-4 gap-2'>
-       <label><span className={`text-${labelColor} font-${labelBold} font-semibold`}>{label}</span>{' '}<span className='text-rose-400'>{isRequired && '*'}</span></label>
+       <label><span className={`${labelColor ? labelColor : 'text-black'} font-${labelBold} font-semibold`}>{label}</span>{' '}<span className='text-rose-400'>{isRequired && '*'}</span></label>
        <div className={`${flexDirection === 'horizontal' ? 'flex items-center justify-start' : 'flex flex-col justify-center gap-y-2'}`}>
        <input name={name} onChange={onChange} value={value} onBlur={onBlur} className={`w-full h-${inputHeight} border border-solid border-gray-200 rounded-md max-w-${inputWidth} pl-2 focus:outline-1 focus:outline-[#ABC8DF] placeholder-gray-400/60`} type={type}  placeholder={placeholder} readOnly={readonly} />
        </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useLocation, Link, Outlet } from 'react-router-dom'
+import PageLayout from '../components/common/ui/PageLayout'
 
 const Favorite = () => {
   const location = useLocation()
@@ -9,7 +10,7 @@ const Favorite = () => {
     <div>
       <section className="text-gray-600 body-font overflow-hidden">
         <div className="container pt-44 pb-10 mx-auto ">
-          <div className="lg:w-full mx-auto flex flex-wrap ring-2 ring-[#DADADA] rounded-2xl p-8 shadow-lg ">
+          <div className="lg:w-full mx-auto flex flex-wrap ring-2 ring-[#DADADA] rounded-2xl p-8 shadow-lg xs-max:w-[90%] ">
             <div className="bg-white w-full">
               <div className="text-center mt-2 mb-6 font-bold">즐겨찾기</div>
               <nav className="flex justify-between">

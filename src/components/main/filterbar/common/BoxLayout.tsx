@@ -1,6 +1,6 @@
 import React from 'react'
 
-type BoxLayoutProps = {
+export type BoxLayoutProps = {
   title: string
   children: React.ReactNode
 }

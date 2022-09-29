@@ -8,7 +8,7 @@ function NoticeDetail() {
   const navigate = useNavigate()
   return (
     <>
-      <PageLayout layoutWidth="[90%]" innerTop="top-[300px]">
+      <PageLayout layoutWidth="w-[90%]" innerTop="top-[300px]">
         <CardTemplate title="공지사항" isTitleVisible={true}>
           <div className="w-[100%]">
             <div className="flex items-center py-8 border-t-[1px] border-solid">

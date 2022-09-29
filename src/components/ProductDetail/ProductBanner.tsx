@@ -2,7 +2,7 @@ import React from 'react'
 
 const ProductBanner = () => {
   return (
-    <div>
+    <div className="xs-max:hidden">
       <section className="text-gray-600 body-font">
         <div className="container py-24 mx-auto flex flex-wrap">
           <div className="flex flex-wrap w-full">

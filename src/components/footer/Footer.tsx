@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Logo from '../header/Logo'
 
 const Footer = () => {
-  return <div className='bg-[#F4F6F8] w-full z-20 relative flex flex-col items-center gap-4 text-[#1b304a] pt-8 border-t-2 border-solid border-gray-200'>
+  return <div className='bg-[#F4F6F8] w-full z-20 relative flex flex-col items-center gap-4 text-[#1b304a] pt-8 border-t-2 border-solid border-gray-200 mt-20'>
     <ul className='w-full mx-auto flex flex-col items-start xs:items-center xs:justify-center gap-y-1 pl-8 xs:pl-0'>
       <li className='font-[900] pb-2 text-2xl tracking-tight'>LENSSIS</li>
       <li>주식회사 <span className='font-bold'>LENSSIS</span></li>

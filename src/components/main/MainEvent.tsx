@@ -1,12 +1,29 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
+import ViewMoreBtn from './common/ViewMoreBtn'
 
 // 지울 것
 const events = [
-  { id: 1, img: '/assets/KakaoTalk_20220714_125021628.jpg', content: '이벤트 내용' },
-  { id: 2, img: '/assets/KakaoTalk_20220714_125021628.jpg', content: '이벤트 내용' },
-  { id: 3, img: '/assets/KakaoTalk_20220714_125021628.jpg', content: '이벤트 내용' },
-  { id: 4, img: '/assets/KakaoTalk_20220714_125021628.jpg', content: '이벤트 내용' }
+  {
+    id: 1,
+    img: 'https://lenssis.jp/data/editor/2203/e3817c7f5762e0e9529ed6b00c90f2b2_1648004784_1526.jpg',
+    content: '이벤트 내용'
+  },
+  {
+    id: 2,
+    img: 'https://lenssis.jp/data/editor/2203/e3817c7f5762e0e9529ed6b00c90f2b2_1648004793_108.jpg',
+    content: '이벤트 내용'
+  },
+  {
+    id: 3,
+    img: 'https://lenssis.jp/data/editor/2203/e3817c7f5762e0e9529ed6b00c90f2b2_1648004808_0861.jpg',
+    content: '이벤트 내용'
+  },
+  {
+    id: 4,
+    img: 'https://lenssis.jp/data/editor/2203/44422109c17730933970139952b48d7a_1647854561_93.jpg',
+    content: '이벤트 내용'
+  }
 ]
 
 const MainEvent = () => {
@@ -14,8 +31,8 @@ const MainEvent = () => {
 
   return (
     <div className="py-2">
-      <div className="flex justify-center items-center text-[24px] my-4 ">
-        <span className="border-b-[6px] border-solid border-[#1B304A] font-[700] my-10 hover:cursor-pointer">
+      <div className="flex justify-center items-center text-[24px] mt-[25px] mb-[30px] md:mb-[50px] ">
+        <span className="border-b-[6px] border-solid border-[#1B304A] text-[18px] md:text-[24px] font-[600] hover:cursor-pointer">
           Event
         </span>
       </div>
@@ -23,8 +40,8 @@ const MainEvent = () => {
         {events.map((event: any) => (
           <div
             key={event.id}
-            className="w-full rounded-xl flex flex-col items-center my-2 shadow-[0_0_6px] shadow-gray-400/80 hover:cursor-pointer"
-            onClick={() => navigate(`/event/${event.id}`)}
+            className="w-full rounded-xl flex flex-col items-center my-2 shadow-basic hover:cursor-pointer"
+            onClick={() => navigate('/event')}
           >
             <img className="w-full h-[226px] rounded-t-xl object-cover" src={event.img} alt="" />
             <div className=" h-[95px]  rounded-b-xl">
@@ -34,11 +51,7 @@ const MainEvent = () => {
           </div>
         ))}
       </div>
-      <div className="w-[100px] h-[40px] my-[20px] mx-auto border-2 border-solid rounded-full flex justify-center items-center">
-        <button className="text-[#0B0954] font=[700]" onClick={() => navigate('/event')}>
-          View More
-        </button>
-      </div>
+      <ViewMoreBtn moveTo="/event" />
     </div>
   )
 }

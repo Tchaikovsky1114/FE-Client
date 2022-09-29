@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { NoticeTitles, NoticePageTitle } from '../../../constants/NoticeTitles'
+import ViewMoreBtn from '../common/ViewMoreBtn'
 import MainNoticeTab from './tabs/MainNoticeTab'
 import NoticePageTab from './tabs/NoticePageTab'
 
